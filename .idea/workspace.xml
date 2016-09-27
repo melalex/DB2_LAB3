@@ -24,8 +24,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DB1_LAB2/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="249">
+              <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -68,9 +68,13 @@
       <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lab2/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="11">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1475009510094" expanded="true" signature="986:998" ph="INSERT INTO c... " />
+                <marker date="1475009510094" expanded="true" signature="986:1015" ph="INSERT INTO " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,6 +147,7 @@
       <list>
         <option value="$PROJECT_DIR$/DB1_LAB2/urls.py" />
         <option value="$PROJECT_DIR$/Lab2/views.py" />
+        <option value="$PROJECT_DIR$/DB1_LAB2/settings.py" />
         <option value="$PROJECT_DIR$/Lab2/model.py" />
       </list>
     </option>
@@ -653,6 +658,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Lab2/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="10" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -665,16 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DB1_LAB2/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lab2/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="10" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="249">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -691,9 +696,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Lab2/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding />
+        <state relative-caret-position="11">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1475009510094" expanded="true" signature="986:998" ph="INSERT INTO c... " />
+            <marker date="1475009510094" expanded="true" signature="986:1015" ph="INSERT INTO " />
+          </folding>
         </state>
       </provider>
     </entry>

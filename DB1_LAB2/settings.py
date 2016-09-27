@@ -82,6 +82,14 @@ DATABASES = {
     }
 }
 
+lab2_config = {
+  'user': 'melalex',
+  'password': 'lama1234',
+  'host': '127.0.0.1',
+  'database': 'lab2',
+  'raise_on_warnings': False,
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
