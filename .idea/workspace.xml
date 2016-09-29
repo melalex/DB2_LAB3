@@ -68,12 +68,12 @@
       <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lab2/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+            <state relative-caret-position="-669">
+              <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1475156635095" expanded="true" signature="4026:4038" ph="INSERT INTO c... " />
-                <marker date="1475156635095" expanded="true" signature="4026:4055" ph="INSERT INTO " />
+                <marker date="1475164558281" expanded="true" signature="5105:5117" ph="INSERT INTO c... " />
+                <marker date="1475164558281" expanded="true" signature="5105:5134" ph="INSERT INTO " />
               </folding>
             </state>
           </provider>
@@ -655,12 +655,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Lab2/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+        <state relative-caret-position="-669">
+          <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1475156635095" expanded="true" signature="4026:4038" ph="INSERT INTO c... " />
-            <marker date="1475156635095" expanded="true" signature="4026:4055" ph="INSERT INTO " />
+            <marker date="1475164558281" expanded="true" signature="5105:5117" ph="INSERT INTO c... " />
+            <marker date="1475164558281" expanded="true" signature="5105:5134" ph="INSERT INTO " />
           </folding>
         </state>
       </provider>

@@ -4,21 +4,24 @@ import mysql.connector
 from DB1_LAB2.settings import lab2_config
 
 
-def delete_suffix(path):
+def delete_extra(path):
+    result = path
     if path.endswith("__lt") or \
             path.endswith("__le") or \
             path.endswith("__gt") or \
             path.endswith("__ge") or \
             path.endswith("__ne"):
         result = path[:-4]
-    else:
-        result = path
+
+    if path.startswith("where__"):
+        result = path[7:]
+
     return result
 
 
 def delete_suffix_decorator(class_method):
     def wrapper(cls, path, separator):
-        attribute = delete_suffix(path)
+        attribute = delete_extra(path)
         return class_method(cls, attribute, separator)
     return wrapper
 
@@ -39,7 +42,7 @@ class Model(object):
         return {key: value for key, value in cls.__dict__.items() if not key.startswith('__') and not callable(key)}
 
     @classmethod
-    def __type_validation(cls, separator, **kwargs):
+    def __type_validation(cls, separator, kwargs):
         for key, value in kwargs:
             value_type = cls.__get_attribute(key, separator)
             if not (value_type and ((type(value) is value_type)
@@ -48,7 +51,7 @@ class Model(object):
         return True
 
     @classmethod
-    def __column_validation(cls, separator, *args):
+    def __column_validation(cls, separator, args):
         for column in args:
             if not cls.__get_attribute(column, separator):
                 return False
@@ -56,19 +59,36 @@ class Model(object):
 
     @classmethod
     def __translate_into_sql(cls, attribute):
-        sql_attribute = delete_suffix(attribute).replace("__", ".")
+        sql_attribute = delete_extra(attribute).replace("__", ".")
         prefix = (cls.__name__ + '.') if '.' in attribute else ''
-        return "%s%s" % (prefix, sql_attribute)
+        return prefix + sql_attribute
+
+    @classmethod
+    def __set_correct_prefix(cls, attribute):
+        result = attribute
+        if not attribute.startswith(cls.__name__):
+            path = ""
+            top_level_table = cls
+            for path_part in attribute.split("."):
+                path += path_part
+                table = cls.__get_attribute(path, '.')
+                if issubclass(table, Model):
+                    top_level_table = table
+                    path += '.'
+                else:
+                    result = top_level_table.__name__ + '.' + path_part
+        return result
 
     @classmethod
     def __select(cls, arg):
         select_part = ""
         for column in arg:
-            select_part += " %s," % column
-        return "SELECT%s" % select_part[:-1]
+            attribute = cls.__set_correct_prefix(column)
+            select_part += (attribute + ", ")
+        return "SELECT%s FROM " % select_part[:-2]
 
     @classmethod
-    def __from(cls, arg):
+    def __used_tables(cls, arg):
         join = ""
         joined = []
         need_to_join = (column_name for column_name in arg if not column_name.startswith(cls.__name__))
@@ -82,14 +102,24 @@ class Model(object):
                     join += " INNER JOIN %s ON %s.entity_id = %s.%s" % (table, table, top_level_table, path_part)
                     joined.append(table)
                     top_level_table = table
+                    path += '.'
 
-        return " FROM %s%s" % (cls.__name__, join)
+        return cls.__name__ + join
 
     @classmethod
-    def __where(cls, kwargs):
+    def __set(cls, to_set):
+        expression = ""
+        formatter = "%s = %{0}s, ".format("(%s)")
+        for column in to_set:
+            attribute = cls.__set_correct_prefix(cls.__translate_into_sql(column))
+            expression += formatter % (attribute, column)
+        return "SET %s" % expression[:-2]
+
+    @classmethod
+    def __where(cls, keys):
         condition = ""
         formatter = " %s %s %{0}s AND".format("(%s)")
-        for key, value in kwargs:
+        for key in keys:
             if key.endswith("__lt"):
                 operator = '<'
             elif key.endswith("__le"):
@@ -103,6 +133,7 @@ class Model(object):
             else:
                 operator = '='
             attribute = cls.__translate_into_sql(key)
+            attribute = cls.__set_correct_prefix(attribute)
             condition += formatter % (attribute, operator, key)
         result = (" WHERE%s" % condition[:-4]) if condition[:-4] else ""
         return result
@@ -129,19 +160,27 @@ class Model(object):
 
     @classmethod
     def select(cls, *args, **kwargs):
-        if not (cls.__type_validation("__", **kwargs) and cls.__column_validation(".", args) and len(args) > 0):
+        if not (cls.__type_validation("__", kwargs) and cls.__column_validation(".", args) and len(args) > 0):
             raise ValueError
 
         column_names = (cls.__translate_into_sql(column) for column in args)
-        query = cls.__select(column_names) + cls.__from(column_names) + cls.__where(kwargs)
+        query = cls.__select(column_names) + cls.__used_tables(column_names) + cls.__where(kwargs.keys())
         print query
         # cls.__cursor.execute(query, kwargs)
         # TODO: return list
         # return cls.__cursor
 
     @classmethod
-    def update(cls):
-        pass
+    def update(cls, **kwargs):
+        if not cls.__type_validation("__", kwargs):
+            raise ValueError
+
+        keys = kwargs.keys()
+        column_names = (cls.__translate_into_sql(column) for column in keys)
+        set_list = (attribute for attribute in keys if not attribute.startswith("where__"))
+        where_list = (attribute for attribute in keys if attribute.startswith("where__"))
+        query = "UPDATE " + cls.__used_tables(column_names) + cls.__set(set_list) + cls.__where(where_list)
+        print query
 
     @classmethod
     def delete(cls):
