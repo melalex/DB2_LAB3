@@ -68,12 +68,12 @@
       <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lab2/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-567">
-              <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+            <state relative-caret-position="402">
+              <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1475148971748" expanded="true" signature="3038:3050" ph="INSERT INTO c... " />
-                <marker date="1475148971748" expanded="true" signature="3038:3067" ph="INSERT INTO " />
+                <marker date="1475156635095" expanded="true" signature="4026:4038" ph="INSERT INTO c... " />
+                <marker date="1475156635095" expanded="true" signature="4026:4055" ph="INSERT INTO " />
               </folding>
             </state>
           </provider>
@@ -645,14 +645,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.2/system/python_stubs/-762174762/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="3326" column="8" selection-start-line="3326" selection-start-column="8" selection-end-line="3326" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Lab2/model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        <state relative-caret-position="402">
+          <caret line="142" column="20" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1475148971748" expanded="true" signature="3038:3050" ph="INSERT INTO c... " />
-            <marker date="1475148971748" expanded="true" signature="3038:3067" ph="INSERT INTO " />
+            <marker date="1475156635095" expanded="true" signature="4026:4038" ph="INSERT INTO c... " />
+            <marker date="1475156635095" expanded="true" signature="4026:4055" ph="INSERT INTO " />
           </folding>
         </state>
       </provider>
