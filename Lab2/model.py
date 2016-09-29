@@ -183,5 +183,11 @@ class Model(object):
         print query
 
     @classmethod
-    def delete(cls):
-        pass
+    def delete(cls, **kwargs):
+        if not cls.__type_validation("__", kwargs):
+            raise ValueError
+
+        keys = kwargs.keys()
+        column_names = (cls.__translate_into_sql(column) for column in keys)
+        query = "DELETE %s.* FROM %s WHERE %s" % (cls.__name__, cls.__used_tables(column_names), cls.__where(keys))
+        print query
