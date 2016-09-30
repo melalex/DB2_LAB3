@@ -1,5 +1,7 @@
 import re
 
+from sql_types import is_sql_type
+
 
 def delete_extra(path):
     result = path
@@ -32,11 +34,21 @@ class Model(object):
         return reduce(lambda obj, attr: getattr(obj, attr, None), path.split(separator), cls)
 
     @classmethod
+    def __type_check(cls, value_type, value):
+        result = False
+        if is_sql_type(value_type, value):
+            result = True
+        elif isinstance(value, value_type):
+            result = True
+        elif issubclass(value_type, Model) and isinstance(value, int):
+            result = True
+        return result
+
+    @classmethod
     def __type_validation(cls, separator, kwargs):
         for key, value in kwargs.iteritems():
             value_type = cls.__get_attribute(key, separator)
-            if not (value_type and ((type(value) is value_type)
-                                    or (issubclass(value_type, Model) and type(value) is int))):
+            if not cls.__type_check(value_type, value):
                 return False
         return True
 
