@@ -13,6 +13,10 @@ def handle_uploaded_file(table_name, csv_file):
         models.add_record(table_name, row)
 
 
+def tables(request):
+    return render_to_response("tables.html", {"tables": models.get_tables_names()})
+
+
 def add_dimension(request, table_name):
     if request.method == 'POST':
         form = forms.CSVUploadForm(request.POST, request.FILES)

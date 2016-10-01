@@ -7,11 +7,13 @@ from model import Model
 
 
 def get_tables():
-    sql_types_members = inspect.getmembers(sys.modules["sql_types"])
-    model_members = inspect.getmembers(sys.modules["model"])
+    # sql_types_members = inspect.getmembers(sys.modules["sql_types"])
+    # model_members = inspect.getmembers(sys.modules["model"])
     schema_members = inspect.getmembers(sys.modules[__name__])
     return {name: obj for name, obj in schema_members
-            if inspect.isclass(obj) and (name, obj) not in sql_types_members and (name, obj) not in model_members}
+            if inspect.isclass(obj) and (name, obj)
+            # not in sql_types_members and (name, obj) not in model_members
+            }
 
 
 class Customers(Model):

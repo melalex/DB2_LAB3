@@ -20,6 +20,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^add/dimensions/([\w]+)&', views.add_dimension),
-    url(r'^add/facts/&', views.add_fact)
+    url(r'^add/dimensions/([\w]+)/$', views.add_dimension),
+    url(r'^add/facts/$', views.add_fact),
+    url(r'^$', views.tables)
 ]
