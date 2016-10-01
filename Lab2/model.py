@@ -1,6 +1,12 @@
 import re
+import sys
+import inspect
 
 from sql_types import is_sql_type
+
+
+def get_members():
+    return inspect.getmembers(sys.modules[__name__])
 
 
 def delete_extra(path):

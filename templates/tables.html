@@ -3,12 +3,29 @@
 {% block title %}Tables{% endblock %}
 
 {% block content %}
-    <h1>Tables</h1>
-    <table>
-        {% for table_name in tables %}
+
+    <div class="container">
+        <h1>Tables</h1>
+        <table class="table table-bordered">
             <tr>
-                <td>{{ table_name }}</td>
+                <th class="bg-primary">Bank</th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for table_name in tables %}
+                <tr>
+                    <td>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <p>{{ table_name }}</p>
+                            </div>
+                            <div class="col-md-1">
+                                <a href="#" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
