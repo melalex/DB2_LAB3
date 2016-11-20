@@ -24,4 +24,4 @@ redis. Основою розробки є програмні засоби, ро�
 
 Screenshots
 -----------------------------------
-![screenshot of sample](http://piccy.info/view3/10540703/b261ef6021b51efc3874021f78337bc2/][IMG]http://i.piccy.info/i9/f04ff406367b3d7db8e358b2a8f6cbea/1479643012/25681/1091591/3_500.jpg[/IMG][/URL][URL=http://i.piccy.info/a3c/2016-11-20-11-56/i9-10540703/500x281-r][IMG]http://i.piccy.info/a3/2016-11-20-11-56/i9-10540703/500x281-r/i.gif)
+![screenshot of sample](http://itmag.es/5bHfh)
